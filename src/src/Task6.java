@@ -7,8 +7,19 @@ public class Task6 {
     public static void Task6() {
         Semaphore Sem = new Semaphore(2);
         CommonResource Res = new CommonResource();
+        ArrayList<Thread> ThreadList = new ArrayList<>();
         for (int Count = 0; Count < 5; Count = Count + 1) {
-            new Thread(new CustomRunnable(Sem, Res)).start();
+            Thread NewThread = new Thread(new CustomRunnable(Sem, Res));
+            ThreadList.add(NewThread);
+            NewThread.start();
+        }
+        for (Thread Object : ThreadList) {
+            try {
+                Object.join();
+            }
+            catch (Exception Ex) {
+                System.out.println("Exception Occurred.");
+            }
         }
     }
     static class CommonResource {

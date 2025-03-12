@@ -29,5 +29,12 @@ public class Task8 {
         });
         ThreadPut.start();
         ThreadGet.start();
+        try {
+            ThreadPut.join();
+            ThreadGet.join();
+        }
+        catch (Exception Ex) {
+            System.out.println("Exception Occurred.");
+        }
     }
 }

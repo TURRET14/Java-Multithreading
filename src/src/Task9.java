@@ -4,6 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Task9 {
+    static public void Task9() {
+        ArrayList<Long> Arr = new ArrayList<>(List.of(500L, 100L, 5000L, 10L, 5L));
+        QuickSort(Arr);
+        for (long Element : Arr) {
+            System.out.print(Element + " | ");
+        }
+    }
     static public void QuickSort(ArrayList<Long> Arr) {
         if (Arr.size() > 1) {
             int MiddleID = Arr.size() / 2;
@@ -35,13 +42,6 @@ public class Task9 {
             Arr.addAll(Left);
             Arr.add(MiddleElement);
             Arr.addAll(Right);
-        }
-    }
-    static public void Task9() {
-        ArrayList<Long> Arr = new ArrayList<>(List.of(500L, 100L, 5000L, 10L, 5L));
-        QuickSort(Arr);
-        for (long Element : Arr) {
-            System.out.print(Element + " | ");
         }
     }
 }
